@@ -2,6 +2,7 @@ package me.vega2k.user.restthymeleaf.jpa.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,10 +25,12 @@ public class User implements Serializable {
     
     @NotBlank(message = "Name is mandatory")
     @JacksonXmlProperty
+    @Column
     private String name;
     
     @NotBlank(message = "Email is mandatory")
     @JacksonXmlProperty
+    @Column(unique = true)
     private String email;
 
     public User() {}
